@@ -9,11 +9,7 @@ AWS.config.update({
   endpoint: "arn:aws:dynamodb:us-east-1:704381840790:table/testDb"
 });
 
-AWS.config.credentials = new EC2MetadataCredentials({
-	httpOptions: { timeout: 5000 },
-	maxRetries: 10,
-	retryDelayOptions: { base: 200 } 
-});
+AWS.config.credentials = new AWS.EC2MetadataCredentials();
 
 app.get('/', (req,res) => {
 	res.send("Test Page");
