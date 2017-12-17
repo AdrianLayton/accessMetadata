@@ -9,7 +9,7 @@ AWS.config.update({
   endpoint: "arn:aws:dynamodb:us-east-1:704381840790:table/testDb"
 });
 
-AWS.config.credentials = new AWS.EC2MetadataCredentials();
+// AWS.config.credentials = new AWS.EC2MetadataCredentials();
 
 app.get('/', (req,res) => {
 	res.send("Test Page");
@@ -17,5 +17,5 @@ app.get('/', (req,res) => {
 
 app.listen(3000,() => {
 	console.log('App has started on port 3000');
-	console.log(AWS.config.credentials);
+	console.log(new AWS.EC2MetadataCredentials());
 });
