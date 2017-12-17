@@ -13,7 +13,7 @@ AWS.config.credentials = new AWS.EC2MetadataCredentials();
 
 app.get('/', (req,res) => {
 	res.send("Test Page");
-}
+})
 
 app.listen(3000,() => {
 	console.log('App has started on port 3000');
