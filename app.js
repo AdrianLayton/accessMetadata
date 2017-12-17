@@ -1,6 +1,8 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
 const AWS = require('aws-sdk');
+const credResponse = new AWS.EC2MetadataCredentials();
+credResponse.refresh();
 
 const app = express();
 
@@ -17,13 +19,5 @@ app.get('/', (req,res) => {
 
 app.listen(3000,() => {
 	console.log('App has started on port 3000');
-	new AWS.MetadataService
-	AWS.MetadataService.request("latest/meta-data/iam/security-credentials/ServerDbCrud", function(err,data) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			console.log(data);
-		}
-})
+	console.log(credResponse);
 });
