@@ -17,13 +17,13 @@ app.get('/', (req,res) => {
 
 app.listen(3000,() => {
 	console.log('App has started on port 3000');
-	console.log(new AWS.MetadataService.request("latest/meta-data/iam/security-credentials/ServerDbCrud", function(err,data) {
+	new AWS.MetadataService
+	AWS.MetadataService.request("latest/meta-data/iam/security-credentials/ServerDbCrud", function(err,data) {
 		if (err) {
 			console.log(err);
 		}
 		else {
 			console.log(data);
 		}
-}
-);
-)});
+})
+});
