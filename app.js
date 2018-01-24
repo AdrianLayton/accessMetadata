@@ -11,10 +11,11 @@ const credResponse1 = new AWS.MetadataService();
 credResponse1.request("latest/meta-data/iam/security-credentials/ServerDbCrud", function(err, data) {
 	if (data) {
 		console.log(data)
+	}
 	else {
 		console.log(err)
 	}
-	}
+	
 });
 
 const app = express();
